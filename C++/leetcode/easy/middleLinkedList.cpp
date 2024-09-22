@@ -32,11 +32,22 @@ class Solution { //class declaration for the function that contains the solution
                     continue;
                 }
                 middlePtr->next = new ListNode(temp->val);
-                cout<<temp->val;
+                //cout<<temp->val;
                 middlePtr = middlePtr->next;
                 temp = temp->next;
             }
             return middleList->next;
+        }
+        ListNode* middleNode2(ListNode* head) {
+            ListNode* slow = head; // pointer to move one place
+            ListNode* fast = head; // pointer to move double places
+            //the middle node changes every addition of two new nodes
+            while(fast != nullptr && fast->next != nullptr) {
+                slow = slow->next; //move one node
+                //cout<<slow->val;
+                fast = fast->next->next; //move two nodes
+            }
+            return slow;
         }
 };
 
@@ -49,7 +60,7 @@ int main(){
     head->next->next->next->next = new ListNode(5);
     head->next->next->next->next->next = new ListNode(6);
     Solution function; //object declaration to use the function
-    ListNode* answer = function.middleNode(head);
+    ListNode* answer = function.middleNode2(head);
     return 0;
 }
 
