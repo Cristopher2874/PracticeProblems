@@ -5,6 +5,14 @@
         "unordered_map": "cpp",
         "string": "cpp",
         "string_view": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "stacktrace": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     }
 }

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -52,7 +51,6 @@ class Solution { //class declaration for the function that contains the solution
 };
 
 int main(){
-    int n = 3;
     ListNode* head = new ListNode(1);
     head->next = new ListNode(2);
     head->next->next = new ListNode(3);
