@@ -8,7 +8,6 @@ public:
         for(int num:nums){
             string temp = to_string(num);
             if(temp.size()%2==0) count++;
-            cout<<temp.size()<<" "<<num<<"\n";
         }
         return count;
     }
