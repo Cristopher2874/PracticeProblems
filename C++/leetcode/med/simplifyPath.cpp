@@ -46,11 +46,41 @@ public:
         if(temp.size()>1)temp.pop_back();
         return temp;
     }
+    string test(string path){
+        stack<string> pathSection;
+        string res="";
+        for(int i=0;i<path.size();i++){
+            if(path[i]=='/'){
+                continue;
+            }
+            string temp="";
+            while(i<path.size()&&path[i]!='/'){
+                temp+=path[i];
+                i++;
+            }
+            if(temp=="."){
+                continue;
+            }else if(temp==".."){
+                if(!pathSection.empty()){
+                    pathSection.pop();
+                }
+            }else{
+                pathSection.push(temp);
+            }
+            
+        }
+        while(!pathSection.empty()){
+            res = "/" + pathSection.top()+res;
+            pathSection.pop();
+        }
+        if(res.size()==0) return "/";
+        return res;
+    }
 };
 
 int main(){
     string s1 = "/.../a/../b/c/../d/./";
     Solution s;
-    cout<<s.simplifyPath(s1);
+    cout<<s.test(s1);
     return 0;
 }
