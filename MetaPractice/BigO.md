@@ -44,3 +44,11 @@ when the steps are calling other steps in the execution, addition is for isolate
 5. Drop constants of the runtime.
 6. Use Big O for the space complexity depending on the call stack of the code and the extra variables and structures created.
 7. Drop the non dominant terms as constants. For example in a complexity *O(a + a2)*, the final complexity would be **O(a2)**.
+
+### Extra
+
+When using Big O, there is necessary to consider the space and time complexity. Not in all cases the O(n) function is faster than
+the O(n2) function, the complexity means that for larger data sets, the runtime will be more efficient, but does not relate to the 
+small cases for runtime. O(n) is faster when the data is larger enough.
+
+#### the complexity depends on the scale!
