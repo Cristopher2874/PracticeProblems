@@ -29,7 +29,7 @@ long long max_additional_diners(long long N, long long K, long long M, vector<lo
 
     return additional_diners;
     }
-    catch(const exception& e)
+    catch(exception e)
     {
         return 0;
     }
