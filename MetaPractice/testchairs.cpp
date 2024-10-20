@@ -3,8 +3,9 @@ using namespace std;
 
 long long max_additional_diners(long long N, long long K, long long M, vector<long long> S) {
     vector<bool> occupied(N + 1, false);
-
-    for (long long seat : S) {
+    try
+    {
+        for (long long seat : S) {
         if (seat < 1 || seat > N) continue;
         occupied[seat] = true;
         for (long long i = max(1LL, seat - K); i < seat; ++i) {
@@ -27,6 +28,11 @@ long long max_additional_diners(long long N, long long K, long long M, vector<lo
     }
 
     return additional_diners;
+    }
+    catch(const exception& e)
+    {
+        return 0;
+    }
 }
 
 int main() {
