@@ -35,16 +35,44 @@ struct ListNode {
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* head = new ListNode(1);
-        
-        return head;
+        if(list1==nullptr&&list2==nullptr){ //for a single list of an empty one
+            return list1;
+        }else if(list1==nullptr){
+            return list2;
+        }else if(list2==nullptr){
+            return list1;
+        }else{
+            ListNode* head = new ListNode(0);
+            ListNode* headPtr = head;
+            ListNode* firstPtr = list1;
+            ListNode* secondPtr = list2;
+            while(firstPtr!=nullptr||secondPtr!=nullptr){
+                cout<<firstPtr->val;
+                cout<<secondPtr->val<<endl; //exception because of null pointer
+                if(firstPtr->val > secondPtr->val){
+                    headPtr->next = new ListNode(secondPtr->val);
+                    headPtr = headPtr->next;
+                    secondPtr = secondPtr->next;
+                }else{
+                    headPtr->next = new ListNode(firstPtr->val);
+                    headPtr = headPtr->next;
+                    firstPtr = firstPtr->next;
+                }
+            }
+            return head->next;
+        }
     }
 };
 
 int main(){
-    ListNode* m1 = new ListNode(1);
+    ListNode* m1 = new ListNode(2);
     ListNode* m2 = new ListNode(1);
     Solution s;
     ListNode* sol = s.mergeTwoLists(m1,m2);
+    ListNode* solPtr = sol;
+    while (solPtr!=nullptr){
+        cout<<solPtr->val;
+        solPtr = solPtr->next;
+    }
     return 0;
 }
