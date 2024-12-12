@@ -46,14 +46,25 @@ public:
             ListNode* headPtr = head;
             ListNode* firstPtr = list1;
             ListNode* secondPtr = list2;
-            while(firstPtr!=nullptr||secondPtr!=nullptr){
-                cout<<firstPtr->val;
-                cout<<secondPtr->val<<endl; //exception because of null pointer
+            while(firstPtr!=nullptr&&secondPtr!=nullptr){
                 if(firstPtr->val > secondPtr->val){
                     headPtr->next = new ListNode(secondPtr->val);
                     headPtr = headPtr->next;
                     secondPtr = secondPtr->next;
                 }else{
+                    headPtr->next = new ListNode(firstPtr->val);
+                    headPtr = headPtr->next;
+                    firstPtr = firstPtr->next;
+                }
+            }
+            if(firstPtr==nullptr){
+                while(secondPtr!=nullptr){
+                    headPtr->next = new ListNode(secondPtr->val);
+                    headPtr = headPtr->next;
+                    secondPtr = secondPtr->next;
+                }
+            }else{
+                while(firstPtr!=nullptr){
                     headPtr->next = new ListNode(firstPtr->val);
                     headPtr = headPtr->next;
                     firstPtr = firstPtr->next;
@@ -66,7 +77,10 @@ public:
 
 int main(){
     ListNode* m1 = new ListNode(2);
+    m1->next = new ListNode(3);
     ListNode* m2 = new ListNode(1);
+    //m2->next = new ListNode(4);
+    //m2->next->next = new ListNode(5);
     Solution s;
     ListNode* sol = s.mergeTwoLists(m1,m2);
     ListNode* solPtr = sol;
