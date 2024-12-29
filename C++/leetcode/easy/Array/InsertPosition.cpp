@@ -55,6 +55,26 @@ public:
             return middle;
         }
     }
+
+    // Function to perform binary search on a sorted array
+    int binarySearch(vector<int>& nums, int target) {
+        int left = 0; // Initialize the left boundary of the search range
+        int right = nums.size() - 1; // Initialize the right boundary of the search range
+
+        while (left <= right) { // Continue searching while the range is valid
+            int mid = left + (right - left) / 2; // Calculate the middle index to avoid overflow
+
+            if (nums[mid] == target) { // Check if the middle element is the target
+                return mid; // Target found, return its index
+            } else if (nums[mid] < target) { // If the middle element is less than the target
+                left = mid + 1; // Narrow the search range to the right half
+            } else { // If the middle element is greater than the target
+                right = mid - 1; // Narrow the search range to the left half
+            }
+        }
+
+        return -1; // Target not found, return -1
+    }
 };
 
 int main(){
