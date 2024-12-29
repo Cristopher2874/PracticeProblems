@@ -16,7 +16,7 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
 */
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 

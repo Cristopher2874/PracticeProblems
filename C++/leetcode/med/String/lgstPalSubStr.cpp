@@ -21,10 +21,33 @@ using namespace std;
 class Solution {
 public:
     string longestPalindrome(string s) {
-        
+        if(s.length() == 0){
+            return "";
+        }else if(s.length() == 1){
+            return s;
+        }else{
+            string longest = "";
+            for(int i=0; i<s.length(); ++i){
+                
+            }
+        }
+        return "";
     }
+    
+    bool palindrome(string s){
+        for(int i= s.length()/2-1; i>=0; i--){
+            if(s[i] != s[s.length()-i-1]){
+                return false;
+            }
+        }
+        return true;
+    }
+    
 };
 
 int main(){
+    string word = "babad";
+    Solution s;
+    cout<<s.longestPalindrome(word);
     return 0;
 }
