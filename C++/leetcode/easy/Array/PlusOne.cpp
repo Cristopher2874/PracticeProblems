@@ -37,29 +37,25 @@ using namespace std;
 class Solution{
     public:
         vector<int> plusOne(vector<int>& digits){
-            int res=0;
-            for(size_t i=digits.size()-1;i>=0;i--){
-                if(i<0){
-                    digits.insert(digits.begin(),res);
-                    break;
-                }
-                int temp=digits[i]+1+res;
+            int temp=0;
+            for(int i=digits.size()-1;i>=0;i--){
+                temp=digits[i]+1;
                 if(temp>=10){
                     digits[i]=(temp%10);
-                    ++res;
                 }else{
                     digits[i]=temp;
+                    temp=0;
                     break;
                 }
-                res=0;
             }
+            if(temp!=0) digits.insert(digits.begin(),1);
             return digits;
         }
 };
 
 int main(){
     Solution s;
-    vector<int> digits = {1,9,9,9,9,9,9};
+    vector<int> digits = {9,9};
     vector<int> result = s.plusOne(digits);
     for(size_t i=0;i<result.size();++i){
         cout << result[i] << " ";
