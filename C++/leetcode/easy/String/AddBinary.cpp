@@ -23,7 +23,32 @@ using namespace std;
 class Solution{
     public:
         string addBinary(string a, string b){
-            return "10";
+            string result = "";
+            int lastA=a.size()-1, lastB=b.size()-1, carry=0;
+            while(lastA>=0||lastB>=0){
+                int sum = carry;
+                if(lastA>=0 && lastB>=0){
+                    sum=sum^(a[lastA--]^b[lastB--]);
+                }else if(lastB>=0){
+                    sum=sum^(0^b[lastB--]);
+                }else{
+                    sum=sum^(a[lastA--]^0);
+                }
+
+                carry = sum&1;
+                result.push_back((sum+'0'));
+                sum=0;
+            }
+
+            /*
+            1+1 = 0 carry 1
+            1+0 = 1 carry 0
+            0+1 = 1 carry 0
+            0+0 = 0 carry 0
+            */
+           result.reserve();
+           if(carry) result.push_back('1');
+           return result;
         }
 };
 
