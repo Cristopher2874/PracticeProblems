@@ -27,13 +27,23 @@ using namespace std;
 class Solution {
 public:
     int mySqrt(int x) {
-        int result = floor(sqrt(x));
-        return result;
+        long right = x, left = 1, middle = 0;
+        while (right >= left){
+            middle = left + (right - left) / 2;
+            if(middle*middle==x || middle < 1){
+                return middle < 1 ? 1 : middle;
+            }else if(middle*middle>x){
+                right = middle-1;
+            }else{
+                left = middle+1;
+            }
+        }
+        return right; //bacause is the closest to the square root
     }
 };
 
 int main(){
     Solution s;
-    cout<<s.mySqrt(8);
+    cout<<s.mySqrt(11);
     return 0;
 }
