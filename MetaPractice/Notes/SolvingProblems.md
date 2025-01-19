@@ -16,7 +16,7 @@
 
 #### 3. Look up for the brute force solution
 
-* Stupid way to do it, supposing I don't know aany algorithms
+* Stupid way to do it, supposing I don't know any algorithms
 * Figure out the complexity and how to improve it.
 
 #### 4. Optimize
