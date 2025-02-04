@@ -42,21 +42,32 @@ struct TreeNode {
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
+        if(root == NULL) return {};
         stack<TreeNode*> line;
         vector<int> res;
-        TreeNode* curr = root;
-        while(!line.empty()||curr != nullptr){
-
+        line.push(root);
+        while(!line.empty()){
+            TreeNode* curr = line.top();
+            if(curr->left != NULL){
+                line.push(curr->left);
+                curr->left = NULL; // mark as visited
+            }
+            else{
+                res.push_back(curr->val); // visit
+                line.pop();
+                if(curr->right != NULL){
+                    line.push(curr->right);
+                    curr->right = NULL; // mark as visited
+                }
+            }
         }
         return res;
-    }
+    } // time O(n) each node is visited once space O(n) because of stack usage
 };
 
 int main(){
     Solution s;
     TreeNode* root = new TreeNode(1);
-    root->right = new TreeNode(2);
-    root->right->left = new TreeNode(3);
     vector<int> res = s.inorderTraversal(root);
     for(auto num : res){
         cout << num << " ";
