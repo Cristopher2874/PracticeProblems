@@ -12,6 +12,8 @@ Constraints:
 
 1 <= s.length <= 1000
 s consist of only digits and English letters.
+
+TWO POINTER TECHNIQUE STRING DYNAMIC PROGRAMMING
 */
 
 #include<bits/stdc++.h>
