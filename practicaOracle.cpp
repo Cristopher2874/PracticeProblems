@@ -103,3 +103,22 @@ Me faltó explicar la importancia de la complejidad
 Me faltó decir más de mi curriculum tecnico
 
 */
+
+/*
+Segunda ronda
+
+Cosas que salieron bien:
+
+
+Cosas que salieron mal:
+
+Cosas que puedo mejorar:
+Tener a la mano mi curriculum
+Tener a la mano mi portafolio
+Tener el deploy de los proyectos que he hecho
+Saber los términos técnicos de mi carrera y de los proyectos que he hecho
+Saber el road map de proyectos o apps que he hecho
+
+Cosas que aprendí:
+
+ */
