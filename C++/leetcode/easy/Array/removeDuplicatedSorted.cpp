@@ -17,6 +17,8 @@ Constraints:
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
 
+ARRAY TWO POINTERS IN PLACE OPERATION
+
  */
 
  #include <bits/stdc++.h>
